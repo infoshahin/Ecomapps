@@ -75,5 +75,7 @@ This repository contains the necessary Dockerfiles to set up a PHP application w
 
  ```bash
       docker compose up -d
-      ```
+ ```
+This command will build, create, start, and attach to containers for a service.
+
 ---
