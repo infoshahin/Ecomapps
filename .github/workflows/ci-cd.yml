@@ -1,0 +1,60 @@
+name: Build and Push Docker Image
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Docker Image Name
+        run: echo "IMAGE_NAME=infoshahin/ecomapps-php-cicd" >> $GITHUB_ENV
+
+      - name: Docker Image Tag
+        run: echo "IMAGE_TAG=$(git rev-parse --short HEAD)" >> $GITHUB_ENV
+
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v2
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+
+      - name: Login to DockerHub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+            
+      - name: Build and push (Master)
+        if: github.ref == 'refs/heads/master'
+        uses: docker/build-push-action@v3
+        with:
+          push: true
+          #tags: ${{env.IMAGE_NAME}}:latest,${{env.IMAGE_NAME}}:${{env.IMAGE_TAG}}
+          tags: |
+            ${{env.IMAGE_NAME}}:${{env.IMAGE_TAG}}
+            ${{ github.ref == 'refs/heads/master' && env.IMAGE_NAME}}:latest
+
+      - name: Deploy on AWS EC2
+        env:
+          PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY  }}
+          HOSTNAME: ${{ secrets.HOSTNAME  }}
+          USER_NAME: ${{ secrets.USERNAME  }}
+          IMAGE_TAG: ${{env.IMAGE_TAG}}
+          IMAGE_NAME: ${{env.IMAGE_NAME}}
+        run: |
+          echo "$PRIVATE_KEY" > private_key.pem && chmod 600 private_key.pem
+          ls
+          sed -i -e 's|IMAGE_TAG|'"$IMAGE_TAG"'|' ${{ github.workspace }}/docker-compose.yml
+          sed -i -e 's|DOCKER_REGISTRY|'"$IMAGE_NAME"'|' ${{ github.workspace }}/docker-compose.yml
+          scp -o StrictHostKeyChecking=no -i private_key.pem ${{ github.workspace }}/docker-compose.yml ${USER_NAME}@${HOSTNAME}:/tmp 
+          ssh -o StrictHostKeyChecking=no -i private_key.pem ${USER_NAME}@${HOSTNAME} '
+            
+            cd /tmp
+            docker-compose up -d
+          '
