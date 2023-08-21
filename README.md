@@ -70,4 +70,10 @@ This repository contains the necessary Dockerfiles to set up a PHP application w
       use mshop;
       ```
 
+
+# Using Docker Compose YAML file
+
+ ```bash
+      docker compose up -d
+      ```
 ---
