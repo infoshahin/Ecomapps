@@ -9,7 +9,7 @@ services:
     ports:
       - "3306:3306"
     volumes:
-      - /home/shahin/volume:/var/lib/mysql
+      - /home/ubuntu/volume:/var/lib/mysql
       - ./db:/docker-entrypoint-initdb.d/:ro
 
   app:
