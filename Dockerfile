@@ -8,4 +8,4 @@ CMD /usr/sbin/apache2ctl -D FOREGROUND
 #Copy files to webserver
 COPY . /var/www/html/
 
-EXPOSE 80
+EXPOSE 5000

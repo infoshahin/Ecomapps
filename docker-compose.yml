@@ -19,4 +19,4 @@ services:
     image: DOCKER_REGISTRY:IMAGE_TAG
     container_name: ecomapp_new2
     ports:
-      - "5600:80"
+      - "80:5000"
