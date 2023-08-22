@@ -16,7 +16,7 @@ services:
     build: ./
     depends_on:
       - db
-    image: ecomimage8
+    image: DOCKER_REGISTRY:IMAGE_TAG
     container_name: ecomapp_new2
     ports:
       - "5600:80"
