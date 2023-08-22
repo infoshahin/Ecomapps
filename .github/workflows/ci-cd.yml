@@ -52,9 +52,9 @@ jobs:
           ls
           sed -i -e 's|IMAGE_TAG|'"$IMAGE_TAG"'|' ${{ github.workspace }}/docker-compose.yml
           sed -i -e 's|DOCKER_REGISTRY|'"$IMAGE_NAME"'|' ${{ github.workspace }}/docker-compose.yml
-          scp -o StrictHostKeyChecking=no -i private_key.pem ${{ github.workspace }}/docker-compose.yml ${USER_NAME}@${HOSTNAME}:/tmp
+          scp -o StrictHostKeyChecking=no -i private_key.pem ${{ github.workspace }}/docker-compose.yml ${USER_NAME}@${HOSTNAME}:./
           ssh -o StrictHostKeyChecking=no -i private_key.pem ${USER_NAME}@${HOSTNAME} '
 
-            cd /tmp
+            cd ./
             docker-compose up -d
           '
