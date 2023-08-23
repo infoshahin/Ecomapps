@@ -1,6 +1,6 @@
 ---
 
-# PHP Application with MySQL using Docker
+# PHP Application with MySQL using Docker.
 
 This repository contains the necessary Dockerfiles to set up a PHP application with a MySQL database. We use a specific MySQL version, `5.6`, and the services can be orchestrated with Docker Compose (though Docker Compose instructions are not provided here).
 
