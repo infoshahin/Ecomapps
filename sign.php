@@ -43,7 +43,7 @@
      <nav class="navbar navbar-inverse navbard navbar-fixed-top">
       
        <ul class="nav navbar-nav ">
-        <li class="item"><a href="index.php">Home</a></li>
+        <li class="item"><a href="index.php">Homepage</a></li>
         <li class="item2"><a href="product.php">Product Page</a></li>
         <li class="item2"><a href="#">Product Listing</a></li>
         <li class="item2"><a href="#">Pages</a></li>

@@ -83,7 +83,7 @@ $send=mysqli_query($con,$sql);
      <nav class="navbar navbar-inverse navbard navbar-fixed-top">
       
        <ul class="nav navbar-nav ">
-        <li class="item"><a href="index.php">Home</a></li>
+        <li class="item"><a href="index.php">HomePage</a></li>
         <li class="item2"><a href="product.php">Android</a></li>
         <li class="item2"><a href="iphone.php">Iphone</a></li>
         <li class="item2"><a href="windows.php">Windows</a></li>
