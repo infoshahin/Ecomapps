@@ -2,6 +2,11 @@
 
 # PHP Application with MySQL using Docker.
 
+[Docker Hub URL](https://hub.docker.com/repository/docker/7180sss/ecomapps-php-cicd/)
+[Running Application URL (Used AWS EC2)](http://18.141.188.60:8001/login.php)
+ 
+
+
 This repository contains the necessary Dockerfiles [(here)](https://github.com/infoshahin/Ecomapps/blob/master/Dockerfile) to set up a PHP application with a MySQL database. We use a specific MySQL version, `5.6`, and the services can be orchestrated with Docker Compose (though Docker Compose instructions are not provided here).
 
 ## Setup & Running the Application
@@ -111,10 +116,10 @@ This GitHub Action for CI/CD ensures a streamlined and automated process for bui
 ![Signup]
 ![1](https://github.com/infoshahin/Ecomapps/assets/8981516/ee714e9f-0f68-4e3a-b71b-87a5ba97c285)
 
-![Sign In](file:///C:/Users/habib/Downloads/1.1.png)
+![Sign In]
 ![1 1](https://github.com/infoshahin/Ecomapps/assets/8981516/8321dea7-ff8a-4993-b9e9-6983730d0e9c)
 
-![After Logged in](file:///C:/Users/habib/Downloads/2.png)
+![After Logged in]
 ![2](https://github.com/infoshahin/Ecomapps/assets/8981516/2169604b-6c4d-48bf-80f3-e0a4b8616ff3)
 
 
