@@ -7,7 +7,7 @@
  
 
 
-This repository contains the necessary Dockerfiles [(here)](https://github.com/infoshahin/Ecomapps/blob/master/Dockerfile) to set up a PHP application with a MySQL database. We use a specific MySQL version, `5.6`, and the services can be orchestrated with Docker Compose (though Docker Compose instructions are not provided here).
+This repository contains the necessary Dockerfiles [(here)](https://github.com/infoshahin/Ecomapps/blob/master/Dockerfile) to set up a PHP application with a MySQL database. We use a specific MySQL version, `5.6`, and the services can be orchestrated with Docker Compose.
 
 ## Setup & Running the Application
 
@@ -86,7 +86,7 @@ This command will build, create, start, and attach to containers for a service.
 
 # GitHub Action for CI/CD
 
-I have implemented a continuous integration and continuous deployment (CI/CD) pipeline for our PHP application using GitHub Actions. The entire workflow is defined in the `.github/workflows/ci-cd.yml` file, which you can view [here](https://github.com/infoshahin/Ecomapps/blob/master/.github/workflows/ci-cd.yml).
+I have implemented a continuous integration and continuous deployment (CI/CD) pipeline for my PHP application using GitHub Actions. The entire workflow is defined in the `.github/workflows/ci-cd.yml` file, which you can view [here](https://github.com/infoshahin/Ecomapps/blob/master/.github/workflows/ci-cd.yml).
 
 #### Workflow Triggers
 
@@ -102,7 +102,7 @@ I have implemented a continuous integration and continuous deployment (CI/CD) pi
 
 4. **Pushes the Docker Image**: If the tests pass, the built Docker image for the PHP application is pushed to a Docker registry, such as Docker Hub. This step makes the image available for deployment to different environments.
 
-5. **Deploys the Docker Compose Stack**: If the tests pass, the Docker Compose stack is deployed to a server. In our case, I am using an AWS EC2 instance, and the SSH command used for connecting is:
+5. **Deploys the Docker Compose Stack**: If the tests pass, the Docker Compose stack is deployed to a server. In my case, I am using an AWS EC2 instance, and the SSH command used for connecting is:
 
    ```
    ssh -i "awsbookingdei.pem" ubuntu@ec2-18-141-188-60.ap-southeast-1.compute.amazonaws.com
