@@ -7,7 +7,7 @@
  
 
 
-This repository contains the necessary Dockerfiles [(here)](https://github.com/infoshahin/Ecomapps/blob/master/Dockerfile) to set up a PHP application with a MySQL database. We use a specific MySQL version, `5.6`, and the services can be orchestrated with Docker Compose.
+This repository contains the necessary Dockerfiles [(here)](https://github.com/infoshahin/Ecomapps/blob/master/Dockerfile) to set up a PHP application with a MySQL database. I use a specific MySQL version, `5.6`, and the services can be orchestrated with Docker Compose.
 
 ## Setup & Running the Application
 
@@ -21,7 +21,7 @@ This repository contains the necessary Dockerfiles [(here)](https://github.com/i
 
 2. **Pulling the MySQL Image**:
 
-   We use the specific MySQL version `5.6` for our database.
+   I use the specific MySQL version `5.6` for my database.
 
    ```bash
    docker pull mysql:5.6
@@ -29,7 +29,7 @@ This repository contains the necessary Dockerfiles [(here)](https://github.com/i
 
 3. **Creating a Docker Network**:
 
-   We'll create a Docker network `ecomnet` to allow the containers to communicate with each other.
+  Create a Docker network `ecomnet` to allow the containers to communicate with each other.
 
    ```bash
    docker network create ecomnet
@@ -55,7 +55,7 @@ This repository contains the necessary Dockerfiles [(here)](https://github.com/i
 
 6. **Accessing the MySQL Container's Shell**:
 
-   If you need to access the MySQL container's shell, you can use the following command:
+   If I need to access the MySQL container's shell, I can use the following command:
 
    ```bash
    docker exec -it db bash
